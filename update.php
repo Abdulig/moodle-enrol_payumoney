@@ -208,7 +208,7 @@ if ($responsearray['status'] == "success") {
 	}
     $userenrolments->modifierid = 2;
     $userenrolments->timecreated = time();
-    $userenrolments->timemodified = time();`
+    $userenrolments->timemodified = time();
 	$plugin->enrol_user($plugininstance, $user->id, $plugininstance->roleid, $userenrolments->timestart, $userenrolments->timeend);
     /* Inserting value to role_assignments table */
     $roleassignments->roleid = 5;
@@ -227,5 +227,3 @@ echo '<script type="text/javascript">
      window.location.href="'.$CFG->wwwroot.'/enrol/payumoney/return.php?id='.$arraycourseinstance[0].'";
      </script>';
 die;
-
-
