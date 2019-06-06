@@ -200,12 +200,16 @@ if ($responsearray['status'] == "success") {
     $userenrolments->status = 0;
     $userenrolments->enrolid = $arraycourseinstance[2];
     $userenrolments->userid = $arraycourseinstance[1];
-    $userenrolments->timestart = time();
-    $userenrolments->timeend = time() + $udf2;
+	$userenrolments->timestart = time();
+	if ($plugininstance->enrolperiod) {
+		$userenrolments->timeend   = $userenrolments->timestart + $udf2;
+	} else {
+		$userenrolments->timeend   = 0;
+	}
     $userenrolments->modifierid = 2;
     $userenrolments->timecreated = time();
-    $userenrolments->timemodified = time();
-    $ret2 = $DB->insert_record("user_enrolments", $userenrolments, false);
+    $userenrolments->timemodified = time();`
+	$plugin->enrol_user($plugininstance, $user->id, $plugininstance->roleid, $userenrolments->timestart, $userenrolments->timeend);
     /* Inserting value to role_assignments table */
     $roleassignments->roleid = 5;
     $roleassignments->contextid = $arraycourseinstance[3];

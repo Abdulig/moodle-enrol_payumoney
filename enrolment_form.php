@@ -35,7 +35,7 @@ if ($this->get_config('checkproductionmode') == 1) {
     $url = "https://secure.payu.in/_payment";
     $testmode = "false";
 } else {
-    $url = "https://test.payu.in/_payment ";
+    $url = "https://sandboxsecure.payu.in/_payment";
     $testmode = "true";
 }
 //$invoice = date('Ymd') . "-" . $instance->courseid . "-" . hash('crc32', $txnid); //udf3
@@ -52,7 +52,7 @@ $fingerprint = strtolower(hash('sha512', $hashSequence));
 <p><b><?php echo $instancename; ?></b></p>
 <p><b><?php echo get_string("cost").": {$instance->currency} {$localisedcost}"; ?></b></p>
 <p>&nbsp;</p>
-<p><img alt="PayUMoney" src="<?php echo $CFG->wwwroot; ?>/enrol/payumoney/pix/payumoney-logo.jpg" /></p>
+<p><img alt="PayUMoney" width="100%" src="<?php echo $CFG->wwwroot; ?>/enrol/payumoney/pix/payumoney-logo.jpg" /></p>
 <p>&nbsp;</p>
 <p>
 	<form method="post" action="<?php echo $url; ?>" >
@@ -68,19 +68,7 @@ $fingerprint = strtolower(hash('sha512', $hashSequence));
                 <input type="hidden" name="udf1" value="<?php echo $udf1 ?>" />
 		<input type="hidden" name="udf2" value="<?php echo $enrolperiod; ?>" />
 		<input type="hidden" name="service_provider" value="payu_paisa" />
-		<input type="submit" id="sub_button" value="" />
+		<input type="image" alt="submit" id="sub_button" src="<?php echo $CFG->wwwroot; ?>/enrol/payumoney/pix/paynow.png"></input>
 	</form>
 </p>
 </div>
-<style type="text/css">
-#sub_button{
-  background: url("<?php echo $CFG->wwwroot; ?>/enrol/payumoney/pix/paynow.png") no-repeat scroll 0 0 transparent;
-  color: #000000;
-  cursor: pointer;
-  font-weight: bold;
-  height: 20px;
-  padding-bottom: 2px;
-  width: 301px;
-  height: 59px;
-}
-</style>
