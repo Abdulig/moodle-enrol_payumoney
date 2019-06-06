@@ -24,9 +24,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2019060100;
+$plugin->version   = 2019060600;
 $plugin->requires  = 2013051401;
 $plugin->component = 'enrol_payumoney';
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = '1.1 (Build: 20190601)';
+$plugin->release   = '1.1 (Build: 20190606)';
 $plugin->cron      = 60;
