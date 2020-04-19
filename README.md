@@ -1,4 +1,4 @@
-# moodle-enrol-payumoney
+# Moodle Enrol PayUMoney
 PayU Money Payment Gateway Moodle Integration
 Enrolment in Moodle using PayUMoney payment gateway for paid courses
 
